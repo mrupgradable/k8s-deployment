@@ -16,4 +16,9 @@ tasks:
   04-deploy:
     cmds:
       - kubectl apply -f k8s/deployment/deployment.yml
-
+  05-list-deployments:
+    cmds:
+      - kubectl get deployments
+  06-scale-up:
+    cmds:
+      - kubectl scale deployment/nginx-deployment --replicas=10
