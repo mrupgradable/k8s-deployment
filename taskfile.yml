@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+  01-create-namespace:
+    cmds:
+      - k apply -f k8s/namespace.yml
+  01-deploy:
+    cmds:
+      - k apply -f k8s/deployment.yml
+
