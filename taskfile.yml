@@ -22,3 +22,6 @@ tasks:
   06-scale-up:
     cmds:
       - kubectl scale deployment/nginx-deployment --replicas=10
+  07-expose-service:
+    cmds:
+      - kubectl apply -f k8s/service/service.yml
