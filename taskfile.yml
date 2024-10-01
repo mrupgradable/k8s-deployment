@@ -3,8 +3,17 @@ version: '3'
 tasks:
   01-create-namespace:
     cmds:
-      - k apply -f k8s/namespace.yml
-  01-deploy:
+      - kubectl use-context mrupgradable-octal
+      - kubectl apply -f k8s/namespace.yml
+  02-create-namespace-context:
     cmds:
-      - k apply -f k8s/deployment.yml
+      - kubectl set-context mrupgradable-octal-experiment --cluster=octal --namespace=experimental --user=mrupgradable.senary
+  03-change-to-namespace-context:
+    cmds:
+      - kubectl config get-contexts
+      - kubectl use-context mrupgradable-octal-experiment
+      - kubectl config get-contexts
+  04-deploy:
+    cmds:
+      - kubectl apply -f k8s/deployment.yml
 
