@@ -25,3 +25,6 @@ tasks:
   07-expose-service:
     cmds:
       - kubectl apply -f k8s/service/service.yml
+  08-delete-service:
+    cmds:
+      - kubectl delete service web-service
