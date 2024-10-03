@@ -24,7 +24,7 @@ tasks:
       - kubectl describe deployment nginx-deployment
   07-list-pods:
     cmds:
-      - kubectl get pods -o wide
+      - kubectl get pods
   08-scale-up-manually:
     cmds:
       - kubectl scale deployment/nginx-deployment --replicas=10
