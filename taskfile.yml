@@ -19,15 +19,24 @@ tasks:
   05-list-deployments:
     cmds:
       - kubectl get deployments
-  06-scale-up:
+  06-describe-deployment:
+    cmds:
+      - kubectl describe deployment nginx-deployment
+  07-list-pods:
+    cmds:
+      - kubectl get pods -o wide
+  08-scale-up-manually:
     cmds:
       - kubectl scale deployment/nginx-deployment --replicas=10
-  07-scale-down:
+  09-scale-down-manually:
     cmds:
       - kubectl scale deployment/nginx-deployment --replicas=1
-  08-expose-service:
+  10-create-hpa-autoscale:
+    cmds:
+      - kubectl apply -f k8s/scale/hpa.yml
+  11-expose-service:
     cmds:
       - kubectl apply -f k8s/service/service.yml
-  09-delete-service:
+  12-delete-service:
     cmds:
       - kubectl delete service experimental-service
