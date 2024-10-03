@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: mrupgradable:cluster-maintainer-clusterrole-binding
+subjects:
+- kind: User
+  name: mrupgradable.senary
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: custom:cluster-maintainer
+  apiGroup: rbac.authorization.k8s.io
+
