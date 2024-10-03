@@ -2,6 +2,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: nginx-hpa
+  namespace: experimental
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
@@ -9,16 +10,16 @@ spec:
     name: nginx-deployment
   minReplicas: 1
   maxReplicas: 10
-behavior:
-  scaleDown:
-    stabilizationWindowSeconds: 300
-    policies:
-    - type: Percent
-      value: 100
-      periodSeconds: 15
-  scaleUp:
-    stabilizationWindowSeconds: 0
-    policies:
-    - type: Percent
-      value: 50
-
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 30
+      policies:
+      - type: Percent
+        value: 90
+        periodSeconds: 10
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+      - type: Percent
+        value: 50
+        periodSeconds: 10

@@ -34,9 +34,15 @@ tasks:
   10-create-hpa-autoscale:
     cmds:
       - kubectl apply -f k8s/scale/hpa.yml
-  11-expose-service:
+  11-describe-hpa-autoscala:
+    cmds:
+      - kubectl describe hpa nginx-hpa
+  12-list-hap-autoscale:
+    cmds:
+      - kubectl get hpa
+  13-expose-service:
     cmds:
       - kubectl apply -f k8s/service/service.yml
-  12-delete-service:
+  14-delete-service:
     cmds:
       - kubectl delete service experimental-service

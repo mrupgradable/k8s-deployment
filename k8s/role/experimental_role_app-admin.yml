@@ -19,3 +19,7 @@ rules:
 - apiGroups: ["apps"]
   resources: ["deployments/scale"]
   verbs: ["*"]
+- apiGroups: ["autoscaling"]
+  resources: ["horizontalpodautoscalers"]
+  verbs: ["*"]
+
