@@ -46,3 +46,8 @@ tasks:
   14-delete-service:
     cmds:
       - kubectl delete service experimental-service
+  15-list-all:
+    cmds:
+      - task: 12-list-hap-autoscale
+      - task: 05-list-deployments
+      - task: 07-list-pods
